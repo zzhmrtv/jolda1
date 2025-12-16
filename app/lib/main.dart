@@ -1,13 +1,18 @@
-import 'package:app/src/app.dart';
-import 'package:app/src/utils/app_state_notifier.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'screens/register_screen.dart';
 
 void main() {
-  runApp(
-    ChangeNotifierProvider<AppStateNotifier>(
-      create: (_) => AppStateNotifier(),
-      child: App(),
-    ),
-  );
+  runApp(const JoldaApp());
+}
+
+class JoldaApp extends StatelessWidget {
+  const JoldaApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: RegisterScreen(),
+    );
+  }
 }
