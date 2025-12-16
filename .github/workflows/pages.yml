@@ -1,31 +1,23 @@
-name: Build Flutter Web
+name: jolda
+description: JOLDA Flutter App
+publish_to: "none"
 
-on:
-  push:
-    branches:
-      - master
+version: 1.0.0+1
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+environment:
+  sdk: ">=3.0.0 <4.0.0"
 
-    defaults:
-      run:
-        working-directory: app
+dependencies:
+  flutter:
+    sdk: flutter
 
-    steps:
-      - uses: actions/checkout@v4
+  cupertino_icons: ^1.0.6
 
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: stable
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
 
-      - run: flutter config --enable-web
-      - run: flutter pub get
-      - run: flutter build web --release
+  flutter_lints: ^3.0.1
 
-      - name: Move web build to docs
-        run: |
-          rm -rf ../docs
-          mkdir ../docs
-          cp -r build/web/* ../docs/
+flutter:
+  uses-material-design: true
