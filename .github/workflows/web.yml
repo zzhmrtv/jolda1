@@ -22,6 +22,12 @@ jobs:
         with:
           channel: stable
 
+      - name: Enable Flutter Web
+        run: flutter config --enable-web
+
+      - name: Flutter Doctor
+        run: flutter doctor
+
       - name: Install dependencies
         run: flutter pub get
 
